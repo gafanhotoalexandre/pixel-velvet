@@ -1,3 +1,4 @@
+import { MobileNav } from '@/components/shared/MobileNav'
 import { Sidebar } from '@/components/shared/Sidebar'
 
 interface LayoutProps {
@@ -8,8 +9,8 @@ export default function Layout({ children }: LayoutProps) {
     <main className="root">
       {/* Sidebar */}
       <Sidebar />
-
       {/* MobileNav */}
+      <MobileNav />
 
       <div className="root-container">
         <div className="wrapper">{children}</div>
