@@ -2,7 +2,7 @@
 
 import { revalidatePath } from 'next/cache'
 
-import User from '../models/user.model'
+import User, { IUser } from '../models/user.model'
 import { connectToDatabase } from '../database/mongoose'
 import { handleError } from '../utils'
 
@@ -34,7 +34,35 @@ export async function getUserById(userId: string) {
 }
 
 // UPDATE
-export async function updateUser(clerkId: string, user: UpdateUserParams) {}
+export async function updateUser(clerkId: string, user: UpdateUserParams) {
+  try {
+    await connectToDatabase()
+
+    const updatedUser = await User.findOneAndUpdate({ clerkId }, user, {
+      new: true,
+    })
+
+    if (!updatedUser) throw new Error('Falha ao atualizar usuário.')
+    return JSON.parse(JSON.stringify(updatedUser))
+  } catch (error) {
+    handleError(error)
+  }
+}
 
 // DELETE
-export async function deleteUser(clerkId: string) {}
+export async function deleteUser(clerkId: string) {
+  try {
+    await connectToDatabase()
+
+    const userToDelete: IUser | null = await User.findOne({ clerkId })
+
+    if (!userToDelete) throw new Error('Usuário não encontrado.')
+
+    const deletedUser = await User.findByIdAndDelete(userToDelete._id)
+    revalidatePath('/')
+
+    return deletedUser ? JSON.parse(JSON.stringify(deletedUser)) : null
+  } catch (error) {
+    handleError(error)
+  }
+}
