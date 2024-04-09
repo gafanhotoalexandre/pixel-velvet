@@ -122,29 +122,30 @@ export const plans = [
 export const transformationTypes = {
   restore: {
     type: 'restore',
-    title: 'Restore Image',
-    subTitle: 'Refine images by removing noise and imperfections',
+    title: 'Restaurar Imagem',
+    subTitle: 'Refine imagens removendo ruídos e imperfeições',
     config: { restore: true },
     icon: 'image.svg',
   },
   removeBackground: {
     type: 'removeBackground',
-    title: 'Background Remove',
-    subTitle: 'Removes the background of the image using AI',
+    title: 'Remover Fundo',
+    subTitle: 'Remove o fundo da imagem usando IA',
     config: { removeBackground: true },
     icon: 'camera.svg',
   },
   fill: {
     type: 'fill',
-    title: 'Generative Fill',
-    subTitle: "Enhance an image's dimensions using AI outpainting",
+    title: 'Preenchimento Generativo',
+    subTitle:
+      'Aprimore as dimensões de uma imagem usando IA de pintura externa',
     config: { fillBackground: true },
     icon: 'stars.svg',
   },
   remove: {
     type: 'remove',
-    title: 'Object Remove',
-    subTitle: 'Identify and eliminate objects from images',
+    title: 'Remover Objeto',
+    subTitle: 'Identifique e elimine objetos das imagens',
     config: {
       remove: { prompt: '', removeShadow: true, multiple: true },
     },
@@ -152,8 +153,8 @@ export const transformationTypes = {
   },
   recolor: {
     type: 'recolor',
-    title: 'Object Recolor',
-    subTitle: 'Identify and recolor objects from the image',
+    title: 'Recolorir Objeto',
+    subTitle: 'Identifique e recolora objetos da imagem',
     config: {
       recolor: { prompt: '', to: '', multiple: true },
     },
