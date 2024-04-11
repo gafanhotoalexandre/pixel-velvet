@@ -1,24 +1,26 @@
 <h1 align="center">PixelVelvet</h1>
 
->Status: Em desenvolvimento...
+> Status: Em desenvolvimento...
 
 <!-- <p align="center">
   <img src="sua-imagem-preview.png" alt="PixelVelvet Preview" style="border-radius: 4px">
 </p> -->
 
-
 <p align="center">Transforme suas imagens com sofisticação e suavidade com o PixelVelvet, uma ferramenta de transformação de imagens com inteligência artificial!</p>
 
 ## Visão Geral
+
 O PixelVelvet é uma poderosa ferramenta de transformação de imagens que utiliza tecnologias avançadas de inteligência artificial para oferecer uma experiência de otimização suave e refinada. Com recursos que incluem redimensionamento, remoção de objetos, ajuste de cores e muito mais, o PixelVelvet é a escolha perfeita para transformar suas imagens com elegância e precisão. Construído com Next.js, TypeScript e uma interface intuitiva, o PixelVelvet oferece uma maneira sofisticada de aprimorar suas fotos.
 
 ## Funcionalidades
+
 - Redimensione suas imagens com facilidade e precisão.
 - Remova objetos indesejados das suas fotos.
 - Ajuste cores e nitidez para obter resultados impressionantes.
 - Interface intuitiva e fácil de usar para uma experiência de edição fluida.
 
 ## Tecnologias
+
 Este projeto utiliza as seguintes tecnologias:
 
 - Next.js
@@ -27,10 +29,11 @@ Este projeto utiliza as seguintes tecnologias:
 - e muito mais
 
 ### Instalação
+
 Clone o repositório e instale as dependências:
 
 ```bash
-git clone https://github.com/seu-usuario/pixelvelvet.git
+git clone https://github.com/gafanhotoalexandre/pixelvelvet.git
 cd pixelvelvet
 npm install
 ```
