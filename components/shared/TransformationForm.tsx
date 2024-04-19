@@ -25,6 +25,7 @@ import {
   transformationTypes,
 } from '@/constants'
 import { AspectRatioKey, debounce, deepMergeObjects } from '@/lib/utils'
+import { updateCredits } from '@/lib/actions/user.actions'
 
 export const formSchema = z.object({
   title: z.string(),
@@ -107,7 +108,7 @@ export function TransformationForm({
     return onChangeField(value)
   }
 
-  // TODO: updateCredits
+  // TODO: Update creditFee to something else
   async function onTransformHandler() {
     setIsTransforming(true)
 
@@ -118,7 +119,7 @@ export function TransformationForm({
     setNewTransformation(null)
 
     startTransition(async () => {
-      // await updateCredits(userId, creditFree)
+      await updateCredits(userId, -1)
     })
   }
   return (
