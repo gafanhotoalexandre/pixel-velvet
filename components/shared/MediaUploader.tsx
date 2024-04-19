@@ -1,4 +1,9 @@
-import { CldUploadWidget } from 'next-cloudinary'
+'use client'
+
+import { dataUrl, getImageSize } from '@/lib/utils'
+import { CldImage, CldUploadWidget } from 'next-cloudinary'
+import { PlaceholderValue } from 'next/dist/shared/lib/get-img-props'
+import Image from 'next/image'
 import { toast } from 'sonner'
 
 interface MediaUploaderProps {
@@ -16,8 +21,18 @@ export function MediaUploader({
   type,
 }: MediaUploaderProps) {
   function onUploadSuccessHandler(result: any) {
+    setImage((prevState: any) => ({
+      ...prevState,
+      publicId: result?.info?.public_id,
+      width: result?.info?.width,
+      height: result?.info?.height,
+      secureUrl: result?.info?.secure_url,
+    }))
+
+    onValueChange(result?.info?.public_id)
+
     toast('Upload realizado com sucesso.', {
-      description: '1 credito foi debitado de sua conta.',
+      description: '1 credito foi debitado da sua conta.',
       duration: 5000,
       className: 'success-toast',
     })
@@ -41,10 +56,38 @@ export function MediaUploader({
       onSuccess={onUploadSuccessHandler}
       onError={onUploadErrorHandler}
     >
-      {({ open }) => (
+      {({ open, cloudinary }) => (
         <div className="flex flex-col gap-4">
           <h3 className="h3-bold text-dark-600">Original</h3>
-          {publicId ? <>Here is the image</> : <div>Here is no image</div>}
+          {publicId ? (
+            <>
+              <div className="cursor-pointer overflow-hidden rounded-[10px]">
+                <CldImage
+                  width={getImageSize(type, image, 'width')}
+                  height={getImageSize(type, image, 'height')}
+                  src={publicId}
+                  alt="imagem"
+                  sizes="(max-width: 767px) 100vw, 50vw"
+                  placeholder={dataUrl as PlaceholderValue}
+                  className="media-uploader_cldImage"
+                />
+              </div>
+            </>
+          ) : (
+            <div className="media-uploader_cta" onClick={() => open()}>
+              <div className="media-uploader_cta-image">
+                <Image
+                  src="/assets/icons/add.svg"
+                  alt="adicionar imagem"
+                  width={24}
+                  height={24}
+                />
+              </div>
+              <p className="p-14-medium">
+                Clique aqui para fazer o upload da imagem
+              </p>
+            </div>
+          )}
         </div>
       )}
     </CldUploadWidget>
