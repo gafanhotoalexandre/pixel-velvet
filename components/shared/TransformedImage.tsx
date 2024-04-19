@@ -68,7 +68,10 @@ export function TransformedImage({
           )}
         </div>
       ) : (
-        <div className="transformed-placeholder">Imagem Transformada</div>
+        <div className="transformed-placeholder">
+          Imagem Transformada <br />
+          <span className="text-red-400">(Ainda não funciona)</span>
+        </div>
       )}
     </div>
   )
