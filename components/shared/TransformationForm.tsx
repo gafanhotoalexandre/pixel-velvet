@@ -17,6 +17,7 @@ import {
 } from '@/components/ui/select'
 import { CustomField } from './CustomField'
 import { MediaUploader } from './MediaUploader'
+import { TransformedImage } from './TransformedImage'
 
 import {
   aspectRatioOptions,
@@ -135,7 +136,7 @@ export function TransformationForm({
           <CustomField
             control={form.control}
             name="aspectRatio"
-            formLabel="Aspect Ratio"
+            formLabel="Proporção da Imagem"
             className="w-full"
             render={({ field }) => (
               <Select
@@ -225,6 +226,15 @@ export function TransformationForm({
                 type={type}
               />
             )}
+          />
+
+          <TransformedImage
+            image={image}
+            type={type}
+            title={form.getValues().title}
+            isTransforming={isTransforming}
+            setIsTransforming={setIsTransforming}
+            transformationConfig={transformationConfig}
           />
         </div>
 
