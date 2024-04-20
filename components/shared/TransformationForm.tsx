@@ -20,9 +20,11 @@ import {
 import { CustomField } from './CustomField'
 import { MediaUploader } from './MediaUploader'
 import { TransformedImage } from './TransformedImage'
+import { InsufficientCreditsModal } from './InsufficientCreditsModal'
 
 import {
   aspectRatioOptions,
+  creditFee,
   defaultValues,
   transformationTypes,
 } from '@/constants'
@@ -172,7 +174,6 @@ export function TransformationForm({
     return onChangeField(value)
   }
 
-  // TODO: Update creditFee to something else
   async function onTransformHandler() {
     setIsTransforming(true)
 
@@ -183,12 +184,13 @@ export function TransformationForm({
     setNewTransformation(null)
 
     startTransition(async () => {
-      await updateCredits(userId, -1)
+      await updateCredits(userId, creditFee)
     })
   }
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+        {creditBalance < Math.abs(creditFee) && <InsufficientCreditsModal />}
         <CustomField
           control={form.control}
           name="title"
