@@ -1,6 +1,7 @@
 'use server'
 
 import { revalidatePath } from 'next/cache'
+import { redirect } from 'next/navigation'
 import { v2 as cloudinary } from 'cloudinary'
 
 import { handleError } from '../utils'
@@ -8,7 +9,6 @@ import { handleError } from '../utils'
 import { connectToDatabase } from '../database/mongoose'
 import User, { IUser } from '../models/user.model'
 import Image, { IImage } from '../models/image.model'
-import { redirect } from 'next/navigation'
 
 // utils
 const populateUser = (query: any) =>

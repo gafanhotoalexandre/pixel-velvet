@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import translate from 'translate'
 
 import { Collection } from '@/components/shared/Collection'
 import { navLinks } from '@/constants'
@@ -8,8 +9,20 @@ import { getAllImages } from '@/lib/actions/image.actions'
 export default async function Home({ searchParams }: SearchParamProps) {
   const page = Number(searchParams?.page) || 1
   const searchQuery = (searchParams?.query as string) || ''
+  let translatedQuery = ''
 
-  const images = await getAllImages({ page, searchQuery })
+  if (searchQuery) {
+    try {
+      translatedQuery = await translate(searchQuery, {
+        from: 'pt',
+        to: 'en',
+      })
+    } catch (error) {
+      console.error('Erro ao traduzir:', error)
+    }
+  }
+
+  const images = await getAllImages({ page, searchQuery: translatedQuery })
 
   return (
     <>
