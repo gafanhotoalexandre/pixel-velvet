@@ -25,7 +25,10 @@ export default async function ImageDetails({
         <div className="p-14-medium md:p-16-medium flex gap-2">
           <p className="text-dark-600">Transformação:</p>
           <p className=" capitalize text-purple-400">
-            {translate(image.transformationType, { from: 'en', to: 'pt' })}
+            {await translate(image.transformationType, {
+              from: 'en',
+              to: 'pt',
+            })}
           </p>
         </div>
 
