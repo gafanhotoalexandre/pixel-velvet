@@ -7,6 +7,7 @@ import { TransformedImage } from '@/components/shared/TransformedImage'
 import { Button } from '@/components/ui/button'
 import { getImageById } from '@/lib/actions/image.actions'
 import { getImageSize } from '@/lib/utils'
+import translate from 'translate'
 // import { DeleteConfirmation } from "@/components/shared/DeleteConfirmation";
 
 export default async function ImageDetails({
@@ -22,9 +23,9 @@ export default async function ImageDetails({
 
       <section className="mt-5 flex flex-wrap gap-4">
         <div className="p-14-medium md:p-16-medium flex gap-2">
-          <p className="text-dark-600">Transformation:</p>
+          <p className="text-dark-600">Transformação:</p>
           <p className=" capitalize text-purple-400">
-            {image.transformationType}
+            {translate(image.transformationType, { from: 'en', to: 'pt' })}
           </p>
         </div>
 
@@ -42,7 +43,7 @@ export default async function ImageDetails({
           <>
             <p className="hidden text-dark-400/50 md:block">&#x25CF;</p>
             <div className="p-14-medium md:p-16-medium flex gap-2">
-              <p className="text-dark-600">Color:</p>
+              <p className="text-dark-600">Cor:</p>
               <p className=" capitalize text-purple-400">{image.color}</p>
             </div>
           </>
@@ -52,7 +53,7 @@ export default async function ImageDetails({
           <>
             <p className="hidden text-dark-400/50 md:block">&#x25CF;</p>
             <div className="p-14-medium md:p-16-medium flex gap-2">
-              <p className="text-dark-600">Aspect Ratio:</p>
+              <p className="text-dark-600">Proporção da Imagem:</p>
               <p className=" capitalize text-purple-400">{image.aspectRatio}</p>
             </div>
           </>
