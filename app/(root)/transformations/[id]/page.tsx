@@ -8,7 +8,7 @@ import { Button } from '@/components/ui/button'
 import { getImageById } from '@/lib/actions/image.actions'
 import { getImageSize } from '@/lib/utils'
 import translate from 'translate'
-// import { DeleteConfirmation } from "@/components/shared/DeleteConfirmation";
+import { DeleteConfirmation } from '@/components/shared/DeleteConfirmation'
 
 export default async function ImageDetails({
   params: { id },
@@ -93,11 +93,11 @@ export default async function ImageDetails({
           <div className="mt-4 space-y-4">
             <Button asChild type="button" className="submit-button capitalize">
               <Link href={`/transformations/${image._id}/update`}>
-                Update Image
+                Atualizar Imagem
               </Link>
             </Button>
 
-            {/* <DeleteConfirmation imageId={image._id} /> */}
+            <DeleteConfirmation imageId={image._id} />
           </div>
         )}
       </section>

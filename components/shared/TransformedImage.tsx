@@ -63,7 +63,7 @@ export function TransformedImage({
             onError={() => {
               debounce(() => {
                 setIsTransforming && setIsTransforming(false)
-              }, 8000)
+              }, 8000)()
             }}
             {...transformationConfig}
           />
@@ -74,8 +74,9 @@ export function TransformedImage({
                 src="/assets/icons/spinner.svg"
                 width={50}
                 height={50}
-                alt="Transformando imagem"
+                alt="spinner"
               />
+              <p className="text-white/80">Por favor, aguarde...</p>
             </div>
           )}
         </div>
