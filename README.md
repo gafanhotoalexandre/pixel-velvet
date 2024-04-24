@@ -2,9 +2,9 @@
 
 > Status: Em desenvolvimento...
 
-<!-- <p align="center">
-  <img src="sua-imagem-preview.png" alt="PixelVelvet Preview" style="border-radius: 4px">
-</p> -->
+<p align="center">
+  <img src="public/assets/pixel-velvet.png" alt="PixelVelvet Preview" style="border-radius: 4px">
+</p>
 
 <p align="center">Transforme suas imagens com sofisticação e suavidade com o PixelVelvet, uma ferramenta de transformação de imagens com inteligência artificial!</p>
 
@@ -27,6 +27,10 @@ Este projeto utiliza as seguintes tecnologias:
 - TypeScript
 - Tailwind CSS
 - e muito mais
+
+### Informações Úteis
+
+- Projeto no ar [aqui](https://pixel-velvet.vercel.app/)
 
 ### Instalação
 
