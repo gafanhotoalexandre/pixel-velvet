@@ -23,7 +23,7 @@ export function InsufficientCreditsModal() {
         <AlertDialogHeader>
           <div className="flex-between">
             <p className="p-16-semibold text-dark-400">
-              Creditos Insuficientes
+              Créditos Insuficientes
             </p>
             <AlertDialogCancel
               className="border-0 p-0 hover:bg-transparent"
