@@ -23,10 +23,35 @@ O PixelVelvet é uma poderosa ferramenta de transformação de imagens que utili
 
 Este projeto utiliza as seguintes tecnologias:
 
-- Next.js
-- TypeScript
-- Tailwind CSS
-- e muito mais
+- Framework e Linguagem:
+
+  - Next.js (Framework)
+  - TypeScript (Linguagem)
+
+- Estilização:
+
+  - Tailwind CSS (Framework de CSS)
+  - ShadcnUI (Biblioteca de UI)
+
+- Serviços de Autenticação e Autenticação:
+
+  - Server Actions (Data Fetching)
+  - Clerk (Autenticação e Gerenciamento de Identidade)
+
+- Armazenamento e Manipulação de Imagens:
+
+  - Cloudinary (Armazenamento e Manipulação de Imagens)
+  - Cloudinary AI (Inteligência Artificial para Imagens)
+
+- Processamento de Pagamentos:
+
+  - Stripe (Plataforma de Pagamentos)
+
+- Banco de Dados:
+
+  - MongoDB (Banco de Dados NoSQL)
+
+- E muito mais
 
 ### Informações Úteis
 
